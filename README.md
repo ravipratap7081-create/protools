@@ -33,6 +33,7 @@ Pro costs ₹149/month via Instamojo and raises the limits (25 MB per PDF, 20 MB
 ## Notes
 
 - The analytics beacon (`tracking-beacon-v2.js`) and the login page are intentionally not in this repo — they embed the project's Supabase anon key.
+- A local clone runs all the tools without the beacon and login page (excluded — they embed the project's Supabase anon key); the beacon is analytics-only.
 - A separate 100% native Android app (v2.0) also exists.
 
 Built by Ravi Pratap Singh (RPS World, Kanpur, India).
