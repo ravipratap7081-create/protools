@@ -1,0 +1,671 @@
+<!DOCTYPE html><html lang="hi" class="dark"><head><script src="/tracking-beacon-v2.js" defer></script><script src="/consent-banner.js" defer></script><script src="/pro-limits.js" defer></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="google-site-verification" content="VSqSIgPBVeD1kQ6s3TYJJkikm0xxlIMu5wyxForZ-Jc"><title>मुफ्त PDF मर्ज और स्प्लिट टूल — PDF जोड़ें या अलग करें (बिना साइनअप)</title><meta name="description" content="मुफ्त ऑनलाइन PDF मर्जर और स्प्लिटर। कई PDFs को एक में जोड़ें या PDF को पेजों में अलग करें — 100% मुफ्त, बिना साइनअप, बिना वॉटरमार्क। फाइलें आपके ब्राउज़र से बाहर नहीं जातीं।"><meta name="keywords" content="pdf merge, pdf split, combine pdf, merge pdf online free, split pdf pages, pdf joiner, pdf cutter"><meta property="og:title" content="मुफ्त PDF मर्ज और स्प्लिट टूल — बिना साइनअप, 100% मुफ्त"><meta property="og:description" content="कई PDFs को एक में मर्ज करें या PDF को अलग पेजों में बाँटें। पूरी तरह आपके ब्राउज़र में चलता है — प्राइवेट और मुफ्त।"><meta property="og:type" content="website"><link rel="canonical" href="https://pdf-merge-split-free.vercel.app/hi/"><link rel="alternate" hreflang="en" href="https://pdf-merge-split-free.vercel.app/"><link rel="alternate" hreflang="hi" href="https://pdf-merge-split-free.vercel.app/hi/"><link rel="icon" href="/favicon.ico"><script src="https://cdn.tailwindcss.com"></script><!-- pdf-lib: LOCAL file; no CDN fallback. --><script src="/pdf-lib.min.js"></script><script src="/jszip.min.js"></script><script> if (window.tailwind) { tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: { 400:'#a78bfa', 500:'#8b5cf6', 600:'#7c3aed' } } } } } } </script><script type="application/ld+json"> {"@context":"https://schema.org","@type":"WebApplication","name":"मुफ्त PDF मर्ज और स्प्लिट टूल","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"मुफ्त ऑनलाइन टूल — कई PDFs को एक में मर्ज करें या PDF को अलग पेजों में बाँटें। बिना साइनअप, ब्राउज़र में चलता है।"} </script><style> body { font-family: 'Inter', system-ui, sans-serif; } .dropzone { transition: all .25s ease; } .dropzone.drag { border-color: #8b5cf6; background: rgba(139,92,246,.08); transform: scale(1.01); } .file-row { animation: slideIn .25s ease; } @keyframes slideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } } .tab-btn.active { background: linear-gradient(135deg,#7c3aed,#4f46e5); color: #fff; } ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; } .spinner { border: 3px solid rgba(255,255,255,.2); border-top-color: #8b5cf6; border-radius: 50%; animation: spin 1s linear infinite; } @keyframes spin { to { transform: rotate(360deg); } }
+/* Compact install banner (Batch 1, Ravi 10 Nov real phone): single row on all
+ * screens, one-line title, subtitle hidden on mobile, small solid button. */
+#protools-banner { box-sizing:border-box; }
+#protools-banner > div:nth-child(2) { min-width:0; }
+#protools-banner .pwa-install-btn { flex:0 0 auto !important; white-space:nowrap !important; }
+#protools-banner .banner-title { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+@media (max-width: 640px) { #protools-banner .banner-sub { display:none !important; } }
+</style><meta name="theme-color" content="#7c3aed"><!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TQ37PEB4LY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ window.dataLayer.push(arguments); }
+  try {
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-TQ37PEB4LY');
+  } catch (e) { /* Analytics must never block the tool. */ }
+</script>
+<script>
+function ptEvent(name, params) {
+  try {
+    const payload = Object.assign({}, params || {}, { event_source: 'protools_pdf_tool' });
+    if (typeof window.gtag === 'function') window.gtag('event', name, payload);
+  } catch (e) { /* Analytics must never block the PDF tool. */ }
+}
+</script>
+<!-- Google AdSense site verification -->
+
+<link rel="manifest" href="/manifest.json"><link rel="icon" href="/icon-192.png"><link rel="apple-touch-icon" href="/icon-192.png"><!-- Vercel Web Analytics (plain HTML) -->
+<script>
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="stylesheet" href="/m3.css"></head><body class="m3-surface m3-on-surface min-h-screen flex flex-col"><header class="border-b m3-border m3-surface-2 backdrop-blur sticky top-0 z-20 m3-appbar"><div class="max-w-6xl mx-auto px-4 py-4 flex items-center gap-3"><img src="/icon-192.png" class="w-10 h-10 rounded-xl" alt="ProTools logo"><div><h1 class="text-xl md:text-2xl font-extrabold bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent m3-display">PDF मर्ज और स्प्लिट</h1><p class="text-xs m3-on-variant">100% मुफ्त · बिना साइनअप · फाइलें आपके डिवाइस से बाहर नहीं जातीं</p></div><a href="/coins" onclick="try{window.PTPro&&window.PTPro.beacon('proClick')}catch(e){}" class="ml-auto shrink-0 whitespace-nowrap m3-btn m3-btn-primary m3-btn-sm">⭐ Buy Pro — ₹149/माह</a></div></header><main class="flex-1 w-full max-w-6xl mx-auto px-4 py-6"><div class="lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-6 lg:items-start"><div class="min-w-0"><div class="flex gap-2 mb-6 m3-surface-2 p-1.5 m3-shape-lg w-fit mx-auto"><button id="tabMerge" class="tab-btn active px-6 py-2.5 m3-shape-md font-semibold text-sm transition m3-tab" onclick="switchTab('merge')">🔗 PDF मर्ज करें</button><button id="tabSplit" class="tab-btn px-6 py-2.5 m3-shape-md font-semibold text-sm text-slate-300 transition m3-tab" onclick="switchTab('split')">✂️ PDF अलग करें</button></div><section id="panelMerge" class="space-y-5"><div id="dropMerge" class="dropzone relative border-2 border-dashed m3-border m3-shape-lg p-10 text-center cursor-pointer m3-surface-2 m3-hover-border m3-dropzone"><div class="text-5xl mb-3">📥</div><p class="font-semibold text-lg">PDF फाइलें यहाँ छोड़ें</p><p class="text-sm m3-on-variant mt-1">या क्लिक करके चुनें — जितनी चाहें, किसी भी क्रम में</p><p class="text-xs m3-on-variant mt-1">मुफ्त सीमा: 10 MB प्रति PDF — Pro में 25 MB</p><p class="text-xs mt-1" style="color:#4ade80">🔒 फाइलें आपके डिवाइस से बाहर नहीं जातीं — टैब बंद करते ही सब साफ हो जाता है</p><input type="file" id="fileMerge" accept="application/pdf" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"></div><div class="pt-1 text-center"><button type="button" onclick="makeSampleMerge()" class="text-xs m3-primary-text underline">सैंपल PDFs से आज़माएँ — फाइल अपलोड किए बिना</button></div><div id="mergeList" class="space-y-2 hidden"><div class="flex items-center justify-between"><h2 class="font-bold text-sm m3-on-surface m3-headline">मर्ज करने वाली फाइलें <span class="m3-on-variant">(↑ ↓ से क्रम बदलें)</span></h2><button onclick="clearMerge()" class="text-xs text-red-400 hover:text-red-300">सब हटाएं</button></div><div id="mergeFiles" class="space-y-2"></div><div class="flex flex-col sm:flex-row gap-3 pt-2"><input id="mergeName" type="text" placeholder="आउटपुट फाइल का नाम (वैकल्पिक, जैसे merged.pdf)" class="flex-1 m3-surface-2 border m3-border m3-shape-md px-4 py-3 text-sm focus:outline-none focus:border-violet-500"><button id="btnMerge" onclick="doMerge()" class="m3-btn-solid">PDF मर्ज करें →</button></div></div></section><section id="panelSplit" class="space-y-5 hidden"><div id="dropSplit" class="dropzone relative border-2 border-dashed m3-border m3-shape-lg p-10 text-center cursor-pointer m3-surface-2 m3-hover-border m3-dropzone"><div class="text-5xl mb-3">📄</div><p class="font-semibold text-lg">PDF फाइल यहाँ छोड़ें</p><p class="text-sm m3-on-variant mt-1">या क्लिक करके चुनें — एक बार में एक PDF</p><p class="text-xs m3-on-variant mt-1">मुफ्त सीमा: 10 MB प्रति PDF — Pro में 25 MB</p><p class="text-xs mt-1" style="color:#4ade80">🔒 फाइलें आपके डिवाइस से बाहर नहीं जातीं — टैब बंद करते ही सब साफ हो जाता है</p><input type="file" id="fileSplit" accept="application/pdf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"></div><div class="pt-1 text-center"><button type="button" onclick="makeSampleSplit()" class="text-xs m3-primary-text underline">सैंपल PDF (6 पेज) से आज़माएँ — फाइल अपलोड किए बिना</button></div><div id="splitOpts" class="hidden space-y-4 m3-surface-2 border m3-border m3-shape-lg p-5"><div class="flex items-center justify-between flex-wrap gap-2"><p class="text-sm"><span class="font-bold" id="splitFileName"></span> · <span id="splitPageCount" class="m3-primary-text font-semibold"></span> pages</p><button onclick="clearSplit()" class="text-xs text-red-400 hover:text-red-300">Remove</button></div><div class="grid md:grid-cols-3 gap-3"><button onclick="setSplitMode('extract')" id="modeExtract" class="split-mode border border-violet-500 bg-violet-500/10 m3-shape-md p-4 text-left m3-mode"><p class="font-bold text-sm">📑 पेज निकालें</p><p class="text-xs m3-on-variant mt-1">जैसे 1-3, 5, 8-10</p></button><button onclick="setSplitMode('every')" id="modeEvery" class="split-mode border border-slate-700 m3-shape-md p-4 text-left hover:border-slate-500 m3-mode"><p class="font-bold text-sm">📚 हर N पेज पर अलग करें</p><p class="text-xs m3-on-variant mt-1">जैसे हर 5 पेज</p></button><button onclick="setSplitMode('all')" id="modeAll" class="split-mode border border-slate-700 m3-shape-md p-4 text-left hover:border-slate-500 m3-mode"><p class="font-bold text-sm">🗂️ सभी पेज अलग-अलग</p><p class="text-xs m3-on-variant mt-1">प्रति पेज एक PDF (ZIP)</p></button></div><div id="extractInput" class="flex flex-col sm:flex-row gap-3"><input id="pageRange" type="text" placeholder="पेज: 1-3, 5, 8-10" class="flex-1 m3-surface border m3-border m3-shape-md px-4 py-3 text-sm focus:outline-none focus:border-violet-500"></div><div id="everyInput" class="hidden flex-col sm:flex-row gap-3"><input id="everyN" type="number" min="1" value="5" class="w-32 m3-surface border m3-border m3-shape-md px-4 py-3 text-sm focus:outline-none focus:border-violet-500"><span class="text-sm m3-on-variant self-center">पेज प्रति फाइल</span></div><button id="btnSplit" onclick="doSplit()" class="w-full m3-btn-solid">PDF अलग करें →</button></div></section><div id="status" class="hidden mt-6 m3-surface-2 border m3-border m3-shape-lg p-5 text-center"><div class="flex items-center justify-center gap-3"><div id="statusSpin" class="spinner w-6 h-6"></div><p id="statusText" class="text-sm font-medium">काम हो रहा है…</p></div></div><div id="result" class="hidden mt-6 m3-success-container border border-emerald-800 m3-shape-lg p-5 text-center space-y-3"><p class="text-4xl">✅</p><p id="resultText" class="font-semibold"></p><div id="resultLinks" class="flex flex-wrap justify-center gap-3"></div></div>
+</div><aside class="hidden lg:block m3-surface-2 border m3-border m3-shape-lg p-5 lg:sticky lg:top-24"><h2 class="font-bold mb-3 m3-headline">कैसे काम करता है?</h2><ol class="text-sm m3-on-variant space-y-2 list-decimal list-inside"><li>फाइल चुनें — PDF या फोटो, ड्रैग और ड्रॉप या ब्राउज़ करें।</li><li>टूल चलाएँ — मर्ज, स्प्लिट या रिसाइज़, एक क्लिक में।</li><li>डाउनलोड करें — रिज़ल्ट तुरंत, कोई इंस्टॉल नहीं।</li></ol><p class="text-xs m3-on-variant mt-4 pt-4 border-t m3-border">100% ब्राउज़र में · बिना साइनअप · बिना वॉटरमार्क · फाइलें कभी डिवाइस से बाहर नहीं जातीं।</p><a href="/coins" class="m3-btn m3-btn-primary w-full mt-4">⭐ Buy Pro — ₹149/माह</a><p class="text-xs m3-on-variant mt-2 text-center">मासिक — कोई ऑटो-रिन्यूअल नहीं, कोई छिपा शुल्क नहीं।</p></aside></div><section id="pro-compare" class="mt-6 m3-surface-2 border m3-border m3-shape-lg p-5"><h2 class="text-lg font-bold mb-1 m3-headline">मुफ्त बनाम Pro — क्या मिलता है?</h2><p class="text-sm m3-on-variant mb-4">सभी टूल सभी के लिए मुफ्त हैं। Pro सिर्फ बड़ी फाइलों और प्राथमिकता के लिए है।</p><div class="overflow-x-auto hidden sm:block"><table class="w-full text-sm"><thead><tr class="text-left border-b m3-border"><th class="py-2 pr-3">सुविधा</th><th class="py-2 pr-3">Free</th><th class="py-2">Pro — ₹149/माह</th></tr></thead><tbody><tr class="border-b m3-border"><td class="py-2 pr-3">सभी टूल (मर्ज, स्प्लिट, फोटो, कंप्रेसर)</td><td class="py-2 pr-3">✓</td><td class="py-2">✓</td></tr><tr class="border-b m3-border"><td class="py-2 pr-3">फोटो इनपुट साइज़</td><td class="py-2 pr-3">5 MB तक</td><td class="py-2">20 MB तक</td></tr><tr class="border-b m3-border"><td class="py-2 pr-3">PDF इनपुट साइज़</td><td class="py-2 pr-3">10 MB तक</td><td class="py-2">25 MB तक</td></tr><tr class="border-b m3-border"><td class="py-2 pr-3">AI उत्तर (डाउट सॉल्वर, रेज़्यूमे मेकर)</td><td class="py-2 pr-3">स्टैंडर्ड</td><td class="py-2">प्राथमिकता</td></tr><tr class="border-b m3-border"><td class="py-2 pr-3">सपोर्ट (बिज़नेस WhatsApp)</td><td class="py-2 pr-3">स्टैंडर्ड</td><td class="py-2">प्राथमिकता</td></tr><tr><td class="py-2 pr-3">विज्ञापन</td><td class="py-2 pr-3">विज्ञापन आएँगे जब लाइव होंगे</td><td class="py-2">कभी विज्ञापन नहीं</td></tr></tbody></table></div><div class="sm:hidden space-y-3"><div class="m3-surface border m3-border m3-shape-md p-4"><p class="font-bold">मुफ्त — ₹0</p><p class="text-sm m3-on-variant mt-1">सभी टूल · फोटो 5 MB तक · PDF 10 MB तक · स्टैंडर्ड AI + सपोर्ट · विज्ञापन आएँगे जब लाइव होंगे</p></div><div class="m3-surface border m3-border m3-shape-md p-4"><p class="font-bold">Pro — ₹149/माह</p><p class="text-sm m3-on-variant mt-1">सभी टूल · फोटो 20 MB तक · PDF 25 MB तक · प्राथमिकता AI + सपोर्ट · कभी विज्ञापन नहीं</p></div></div><div class="flex flex-wrap items-center gap-3 mt-4"><a href="/coins" onclick="try{window.PTPro&&window.PTPro.beacon('proClick')}catch(e){}" class="m3-btn m3-btn-primary">⭐ Buy Pro — ₹149/माह</a><span class="text-xs m3-on-variant">Pro हर डिवाइस पर चलता है — सिर्फ पेमेंट ईमेल से चेक होता है, कोई लॉगिन नहीं चाहिए। मासिक — कोई ऑटो-रिन्यूअल नहीं, कोई छिपा शुल्क नहीं। कभी भी रद्द करें।</span></div></section>
+<section class="mt-8"><h2 class="text-lg font-bold mb-4 m3-headline">📄 PDF टूल</h2><div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mb-8"><a href="/merge" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">🔗 PDF मर्ज करें</p><p class="m3-on-variant mt-1">कई PDFs को एक फाइल में जोड़ें</p></a><a href="/split" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">✂️ PDF अलग करें</p><p class="m3-on-variant mt-1">पेज निकालें या अलग करें</p></a><a href="/pdf-compressor-100kb" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">🗜️ PDF कंप्रेसर</p><p class="m3-on-variant mt-1">PDF छोटा करें — 100 KB से</p></a><a href="/pdf-page-extractor" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">📄 PDF पेज एक्सट्रैक्टर</p><p class="m3-on-variant mt-1">PDF से पहले 3 पेज निकालें</p></a></div><h2 id="sarkari" class="text-lg font-bold mb-4 m3-headline">🛠️ सरकारी फॉर्म टूल</h2><div class="grid sm:grid-cols-2 gap-3 text-sm"><a href="/ssc-photo-20-50kb" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">🪪 फोटो 20–50 KB</p><p class="m3-on-variant mt-1">IBPS, Navy, पासपोर्ट फॉर्म फोटो — SSC फोटो live capture होती है</p></a><a href="/signature-10-20kb" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">✍️ Signature 10–20 KB</p><p class="m3-on-variant mt-1">हस्ताक्षर रिसाइज़ — 10–20 KB</p></a><a href="/railway-form-photo" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">🚂 Railway Form Photo</p><p class="m3-on-variant mt-1">रेलवे फॉर्म फोटो रिसाइज़</p></a><a href="/caste-certificate-photo-resize" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">📜 Caste Certificate Photo</p><p class="m3-on-variant mt-1">जाति प्रमाणपत्र फॉर्म फोटो</p></a><a href="/scholarship-form-pdf" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">🎓 Scholarship Form PDF</p><p class="m3-on-variant mt-1">छात्रवृत्ति फॉर्म PDF — पहले पेज, हल्की फाइल</p></a><a href="/passport-photo-20kb" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">📷 Passport Photo 20 KB</p><p class="m3-on-variant mt-1">पासपोर्ट फोटो — 20 KB</p></a><a href="/up-police-photo-resizer" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">🚔 UP Police Photo 50 KB</p><p class="m3-on-variant mt-1">UP पुलिस फॉर्म फोटो — 50 KB</p></a><a href="/pdf-page-extractor" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">📄 PDF पेज एक्सट्रैक्टर</p><p class="m3-on-variant mt-1">PDF से पहले 3 पेज निकालें</p></a><a href="/pdf-compressor-100kb" class="block m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border m3-fade-up"><p class="font-bold">🗜️ PDF कंप्रेसर</p><p class="m3-on-variant mt-1">PDF छोटा करें — टारगेट साइज़ चुनें (100 KB से)</p></a></div></section>
+<section class="mt-12"><h2 class="text-lg font-bold mb-4 m3-headline">3 स्टेप में काम हो जाएगा</h2><div class="grid sm:grid-cols-3 gap-3 text-sm"><div class="m3-surface-2 border m3-border m3-shape-md p-4"><p class="font-bold">1 · फाइल चुनें</p><p class="m3-on-variant mt-1">ड्रैग और ड्रॉप या ब्राउज़ करें — PDF या फोटो।</p></div><div class="m3-surface-2 border m3-border m3-shape-md p-4"><p class="font-bold">2 · टूल चलाएँ</p><p class="m3-on-variant mt-1">मर्ज, स्प्लिट या रिसाइज़ — एक क्लिक।</p></div><div class="m3-surface-2 border m3-border m3-shape-md p-4"><p class="font-bold">3 · डाउनलोड करें</p><p class="m3-on-variant mt-1">रिज़ल्ट तुरंत — कोई इंस्टॉल नहीं चाहिए।</p></div></div><p class="text-sm m3-on-variant mt-4">विस्तार से पढ़ना है? <a href="/guides/merge-or-split.html" class="m3-primary-text underline">मर्ज या स्प्लिट — कौनसा चाहिए?</a> · <a href="/guides/privacy-and-limits.html" class="m3-primary-text underline">प्राइवेसी और सीमाएँ, ईमानदारी से</a></p><p class="text-sm m3-on-variant mt-2"><strong class="m3-on-surface">सीमाएँ, साफ-साफ:</strong> यह टूल पेज जोड़ता और अलग करता है — PDF के अंदर का टेक्स्ट एडिट नहीं करता, स्कैन की हुई इमेज को खोजने लायक टेक्स्ट नहीं बनाता, पासवर्ड नहीं हटाता। फाइलें आपके ब्राउज़र में ही प्रोसेस होती हैं — अपलोड नहीं होतीं।</p></section><section class="mt-8"><h2 class="text-lg font-bold mb-4 m3-headline">📚 गाइड</h2><div class="grid sm:grid-cols-2 gap-3 text-sm"><a href="/guides/merge-pdfs-online.html" class="m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border"><p class="font-bold">PDF कैसे मर्ज करें</p><p class="m3-on-variant mt-1">ऑर्डर, साइज़ सीमा, और भेजने से पहले की जाँच।</p></a><a href="/guides/split-pdf-pages.html" class="m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border"><p class="font-bold">PDF कैसे अलग करें</p><p class="m3-on-variant mt-1">पेज निकालें, हर N पेज पर अलग करें, या सभी पेज।</p></a><a href="/guides/make-pdf-smaller-for-email.html" class="m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border"><p class="font-bold">ईमेल के लिए PDF छोटा करें</p><p class="m3-on-variant mt-1">तरीके जो सच में काम करते हैं — और जो नहीं करते।</p></a><a href="/guides/form-photo-exact-kb.html" class="m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border"><p class="font-bold">फॉर्म फोटो को सटीक KB में करें</p><p class="m3-on-variant mt-1">टारगेट साइज़, क्वालिटी का समझौता, आम गलतियाँ।</p></a><a href="/guides/merge-or-split.html" class="m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border"><p class="font-bold">मर्ज या स्प्लिट — कौनसा चाहिए?</p><p class="m3-on-variant mt-1">40 MB ईमेल करने से पहले यह पढ़ें।</p></a><a href="/guides/privacy-and-limits.html" class="m3-surface-2 border m3-border m3-shape-md p-4 m3-hover-border"><p class="font-bold">प्राइवेसी और सीमाएँ</p><p class="m3-on-variant mt-1">फाइलें कहाँ जाती हैं — और क्या नहीं होता।</p></a></div></section><section class="mt-8"><h2 class="text-lg font-bold mb-4 m3-headline">❓ अक्सर पूछे जाने वाले सवाल</h2><div class="space-y-2" id="faq"><details class="m3-surface-2 border m3-border m3-shape-md p-4"><summary class="font-semibold text-sm cursor-pointer">क्या यह PDF टूल सच में मुफ्त है?</summary><p class="text-sm m3-on-variant mt-2">हाँ — मर्ज और स्प्लिट 100% मुफ्त हैं, बिना साइनअप और बिना वॉटरमार्क के। मुफ्त फाइल-साइज़ सीमा लागू होती है: 10 MB प्रति PDF (Pro में 25 MB)।</p></details><details class="m3-surface-2 border m3-border m3-shape-md p-4"><summary class="font-semibold text-sm cursor-pointer">क्या मेरी PDFs सर्वर पर अपलोड होती हैं?</summary><p class="text-sm m3-on-variant mt-2">नहीं। सब कुछ आपके ब्राउज़र में लोकली JavaScript से प्रोसेस होता है। आपकी फाइलें आपके डिवाइस से बाहर नहीं जातीं।</p></details><details class="m3-surface-2 border m3-border m3-shape-md p-4"><summary class="font-semibold text-sm cursor-pointer">एक बार में कितनी PDFs मर्ज कर सकते हैं?</summary><p class="text-sm m3-on-variant mt-2">जितनी चाहें — बस कुल साइज़ अपने डिवाइस की मेमोरी के हिसाब से रखें (लगभग 100 MB तक आराम से चलता है)।</p></details><details class="m3-surface-2 border m3-border m3-shape-md p-4"><summary class="font-semibold text-sm cursor-pointer">क्या पासवर्ड वाली PDF अलग कर सकते हैं?</summary><p class="text-sm m3-on-variant mt-2">एन्क्रिप्टेड PDFs को पहले अनलॉक करना होगा — पासवर्ड हटाएँ, फिर यह टूल इस्तेमाल करें।</p></details><details class="m3-surface-2 border m3-border m3-shape-md p-4"><summary class="font-semibold text-sm cursor-pointer">क्या यह मोबाइल पर काम करता है?</summary><p class="text-sm m3-on-variant mt-2">हाँ — यह टूल पूरी तरह रेस्पॉन्सिव है और Android, iPhone और डेस्कटॉप ब्राउज़र पर काम करता है।</p></details></div></section></main><footer class="border-t m3-border m3-surface-2 m3-footer"><div class="max-w-6xl mx-auto px-4 py-6 text-center text-xs m3-on-variant"><div class="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-3"><a href="/guides/" class="hover:text-slate-300">Guides</a><a href="/privacy-policy" class="hover:text-slate-300">Privacy Policy</a><a href="/terms" class="hover:text-slate-300">Terms of Service</a><a href="/refund-policy" class="hover:text-slate-300 mr-3">Refund Policy</a><a href="/contact" class="hover:text-slate-300">Contact</a><a href="/about" class="hover:text-slate-300">About</a><a href="https://viesearch.com/2afv1/protools-free-pdf-merge-amp-split-tool" class="hover:text-slate-300" target="_blank" rel="noopener">Listed on Viesearch</a></div><div class="mt-4 flex justify-center"><a href="https://toolindex.net/?ref=badge" target="_blank" rel="nofollow noopener"><img src="https://toolindex.net/badges/listed-on-toolindex-dark.svg" alt="Listed on Tool Index" width="200" height="54" onerror="this.style.display='none';var f=document.getElementById('toolindex-fallback');if(f)f.style.display='inline'"><a id="toolindex-fallback" href="https://toolindex.net/?ref=badge" target="_blank" rel="nofollow noopener" style="display:none">Listed on Tool Index</a></a></div><p class="font-semibold m3-on-variant">📄 PDF मर्ज और स्प्लिट — हमेशा मुफ्त</p><p class="mt-1">बिना साइनअप · बिना वॉटरमार्क · आपकी फाइलें आपके ब्राउज़र से बाहर नहीं जातीं · ❤️ के साथ बनाया गया</p><p class="mt-1">Operated by Ravi Pratap Singh · RPS World, Kanpur, India</p><p class="mt-3">RPS World — कानपुर के व्यवसायों के लिए वेबसाइट: <a href="https://muse.ai/s/rps-world-portfolio-txt6tahxn3y3xn/GhHiO794Jm4IWuGyLMqU42H0nxvOUVZcvNFe8oeJm0g" class="underline">Portfolio</a> · <a href="https://nyota-demo.vercel.app" class="underline">Nyota demo</a> · <a href="https://wa.me/919235039317" class="underline">WhatsApp पर बात करें</a></p></div></footer>
+<script>
+let PDFDocument = null;
+
+function loadPDFLib() {
+  try {
+    if (window.PDFLib && typeof window.PDFLib.PDFDocument === 'function') {
+      PDFDocument = window.PDFLib.PDFDocument;
+    }
+  } catch (e) {
+    PDFDocument = null;
+  }
+}
+
+function engineReady() {
+  loadPDFLib();
+  if (!PDFDocument) {
+    toast('The local PDF engine could not be loaded. Check that /pdf-lib.min.js is deployed, then refresh.');
+    return false;
+  }
+  return true;
+}
+
+function zipReady() {
+  if (typeof window.JSZip !== 'function') {
+    toast('The local ZIP library could not be loaded. Check that /jszip.min.js is deployed, then refresh.');
+    return false;
+  }
+  return true;
+}
+
+loadPDFLib();
+
+let mergeFilesArr = [];
+let splitFile = null;
+let splitMode = 'extract';
+
+/* ── Tabs ── */
+function switchTab(t) {
+  ptEvent('tool_open', { tool: t });
+  const m = t === 'merge';
+  document.getElementById('panelMerge').classList.toggle('hidden', !m);
+  document.getElementById('panelSplit').classList.toggle('hidden', m);
+  document.getElementById('tabMerge').classList.toggle('active', m);
+  document.getElementById('tabSplit').classList.toggle('active', !m);
+  document.getElementById('tabMerge').classList.toggle('text-slate-300', !m);
+  document.getElementById('tabSplit').classList.toggle('text-slate-300', m);
+  hideResult();
+}
+
+/* ── Drag & drop wiring ── */
+function wireDrop(zoneId, inputId, handler) {
+  const z = document.getElementById(zoneId);
+  const inp = document.getElementById(inputId);
+
+  z.addEventListener('click', e => {
+    if (e.target !== inp) inp.click();
+  });
+
+  inp.addEventListener('change', e => {
+    const files = e.target.files;
+    handler(files);
+    inp.value = '';
+  });
+
+  ['dragenter', 'dragover'].forEach(ev => z.addEventListener(ev, e => {
+    e.preventDefault();
+    z.classList.add('drag');
+  }));
+
+  ['dragleave', 'drop'].forEach(ev => z.addEventListener(ev, e => {
+    e.preventDefault();
+    z.classList.remove('drag');
+  }));
+
+  z.addEventListener('drop', e => handler(e.dataTransfer.files));
+}
+
+wireDrop('dropMerge', 'fileMerge', addMergeFiles);
+wireDrop('dropSplit', 'fileSplit', addSplitFile);
+
+function fmtSize(b) {
+  return b > 1048576
+    ? (b / 1048576).toFixed(1) + ' MB'
+    : Math.max(1, Math.round(b / 1024)) + ' KB';
+}
+
+/* ── MERGE ── */
+async function addMergeFiles(fileList) {
+  const pdfs = [...fileList].filter(f =>
+    f.type === 'application/pdf' || f.name.toLowerCase().endsWith('.pdf')
+  );
+
+  if (!pdfs.length) return toast('Please add PDF files only.');
+  var _g = window.PTPro && window.PTPro.guardFiles ? window.PTPro.guardFiles(pdfs, 'pdf') : { ok: true };
+  if (!_g.ok) return toast(_g.reason);
+
+  /* Pro limit (Fix 1): free 10 MB per PDF, Pro 25 MB. Over-limit files
+   * go through the upgrade prompt; on a successful Pro check they are
+   * added back here. Size is checked before any bytes are read. */
+  const allowed = [];
+  const blocked = [];
+  for (const f of pdfs) {
+    const r = await window.PTPro.checkFile(f, 'pdf');
+    if (r.ok) allowed.push(f);
+    else blocked.push(f);
+  }
+
+  for (const f of allowed) {
+    mergeFilesArr.push({ name: f.name, bytes: await f.arrayBuffer() });
+  }
+
+  if (allowed.length) {
+    ptEvent('file_selected', { tool: 'merge', file_count: allowed.length });
+    window.PTPro && window.PTPro.beacon('fileSelected', allowed);
+  }
+
+  if (blocked.length) {
+    window.PTPro.promptForFiles(blocked, 'pdf', async function (more) {
+      for (const f of more) {
+        mergeFilesArr.push({ name: f.name, bytes: await f.arrayBuffer() });
+      }
+      ptEvent('file_selected', { tool: 'merge', file_count: more.length });
+      window.PTPro && window.PTPro.beacon('fileSelected', more);
+      renderMergeList();
+    });
+  }
+
+  renderMergeList();
+}
+
+function renderMergeList() {
+  const box = document.getElementById('mergeFiles');
+  document.getElementById('mergeList').classList.toggle('hidden', !mergeFilesArr.length);
+  box.innerHTML = '';
+
+  mergeFilesArr.forEach((f, i) => {
+    const row = document.createElement('div');
+    row.className = 'file-row flex items-center gap-3 bg-slate-900 border border-slate-800 rounded-xl px-4 py-3';
+    row.innerHTML = `<span class="text-red-400 font-bold text-sm w-6">${i + 1}</span><span class="text-xl">📄</span><span class="flex-1 text-sm truncate">${escapeHtml(f.name)} <span class="text-slate-500">(${fmtSize(f.bytes.byteLength)})</span></span><button class="px-2 py-1 text-slate-400 hover:text-white disabled:opacity-30" ${i === 0 ? 'disabled' : ''} onclick="moveMerge(${i},-1)" title="Move up">↑</button><button class="px-2 py-1 text-slate-400 hover:text-white disabled:opacity-30" ${i === mergeFilesArr.length - 1 ? 'disabled' : ''} onclick="moveMerge(${i},1)" title="Move down">↓</button><button class="px-2 py-1 text-red-400 hover:text-red-300" onclick="removeMerge(${i})" title="Remove">✕</button>`;
+    box.appendChild(row);
+  });
+}
+
+function moveMerge(i, d) {
+  const j = i + d;
+  [mergeFilesArr[i], mergeFilesArr[j]] = [mergeFilesArr[j], mergeFilesArr[i]];
+  renderMergeList();
+}
+
+function removeMerge(i) {
+  mergeFilesArr.splice(i, 1);
+  renderMergeList();
+}
+
+function clearMerge() {
+  mergeFilesArr = [];
+  renderMergeList();
+  hideResult();
+}
+
+async function doMerge() {
+  if (mergeFilesArr.length < 2) {
+    return toast('Add at least 2 PDF files to merge.');
+  }
+
+  showStatus('Merging ' + mergeFilesArr.length + ' PDFs…');
+
+  try {
+    if (!engineReady()) {
+      hideStatus();
+      return;
+    }
+
+    window.PTPro && window.PTPro.beacon('processStart');
+    const out = await PDFDocument.create();
+
+    for (const f of mergeFilesArr) {
+      const src = await PDFDocument.load(f.bytes, { ignoreEncryption: true });
+      const pages = await out.copyPages(src, src.getPageIndices());
+      pages.forEach(p => out.addPage(p));
+    }
+
+    const bytes = await out.save();
+    const name = (
+      document.getElementById('mergeName').value.trim() || 'merged'
+    ).replace(/\.pdf$/i, '') + '.pdf';
+
+    download(bytes, name);
+    ptEvent('merge_success', { file_count: mergeFilesArr.length });
+    window.PTPro && window.PTPro.beacon('processSuccess');
+    showResult('Merged ' + mergeFilesArr.length + ' PDFs — ' + fmtSize(mergeFilesArr.reduce(function(a,f){return a+f.bytes.byteLength;},0)) + ' → ' + fmtSize(bytes.length) + ' 🎉', [{ name, bytes }]);
+  } catch (e) {
+    toast('Merge failed. Please check that every file is a valid, unencrypted PDF.');
+  }
+
+  hideStatus();
+}
+
+/* ── SPLIT ── */
+async function addSplitFile(fileList) {
+  const f = [...fileList].find(x =>
+    x.type === 'application/pdf' || x.name.toLowerCase().endsWith('.pdf')
+  );
+
+  if (!f) return toast('Please add a PDF file.');
+  var _g2 = window.PTPro && window.PTPro.guardFile ? window.PTPro.guardFile(f, 'pdf') : { ok: true };
+  if (!_g2.ok) return toast(_g2.reason);
+
+  /* Pro limit (Fix 1): free 10 MB, Pro 25 MB. */
+  const _limit = await window.PTPro.checkFile(f, 'pdf');
+  if (!_limit.ok) {
+    window.PTPro.promptForFile(f, 'pdf', function (okFile) { addSplitFile([okFile]); });
+    return;
+  }
+
+  splitFile = null;
+  document.getElementById('splitOpts').classList.add('hidden');
+  hideResult();
+  showStatus('Reading PDF…');
+
+  try {
+    if (!engineReady()) {
+      hideStatus();
+      return;
+    }
+
+    const bytes = await f.arrayBuffer();
+    const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+
+    splitFile = {
+      name: f.name,
+      bytes,
+      pageCount: doc.getPageCount()
+    };
+
+    ptEvent('file_selected', { tool: 'split' });
+    window.PTPro && window.PTPro.beacon('fileSelected', [f]);
+    document.getElementById('splitFileName').textContent = f.name;
+    document.getElementById('splitPageCount').textContent = splitFile.pageCount;
+    document.getElementById('splitOpts').classList.remove('hidden');
+    document.getElementById('pageRange').placeholder =
+      'Pages: 1-' + splitFile.pageCount + ' (e.g. 1-3, 5)';
+  } catch (e) {
+    toast('Could not read PDF: ' + e.message);
+  }
+
+  hideStatus();
+}
+
+function clearSplit() {
+  splitFile = null;
+  document.getElementById('splitOpts').classList.add('hidden');
+  document.getElementById('fileSplit').value = '';
+  hideResult();
+}
+
+function setSplitMode(m) {
+  splitMode = m;
+
+  ['extract', 'every', 'all'].forEach(x => {
+    const el = document.getElementById('mode' + x[0].toUpperCase() + x.slice(1));
+    const on = x === m;
+
+    el.classList.toggle('border-violet-500', on);
+    el.classList.toggle('bg-violet-500/10', on);
+    el.classList.toggle('border-slate-700', !on);
+  });
+
+  document.getElementById('extractInput').style.display =
+    m === 'extract' ? '' : 'none';
+
+  const ev = document.getElementById('everyInput');
+  ev.classList.toggle('hidden', m !== 'every');
+  ev.classList.toggle('flex', m === 'every');
+}
+
+function parseRange(str, max) {
+  const pages = new Set();
+  const input = String(str || '').trim();
+
+  if (!input) return [];
+
+  for (const part of input.split(',')) {
+    const p = part.trim();
+    let a, b;
+
+    if (/^\d+$/.test(p)) {
+      a = b = Number(p);
+    } else if (/^\d+\s*-\s*\d+$/.test(p)) {
+      [a, b] = p.split('-').map(Number);
+    } else {
+      throw new Error('Invalid page range: ' + p);
+    }
+
+    if (a < 1 || b < 1 || a > max || b > max) {
+      throw new Error('Page numbers must be between 1 and ' + max + '.');
+    }
+
+    if (a > b) [a, b] = [b, a];
+
+    for (let n = a; n <= b; n++) {
+      pages.add(n - 1);
+    }
+  }
+
+  return [...pages].sort((a, b) => a - b);
+}
+async function doSplit() {
+  if (!splitFile) return toast('Upload a PDF first.');
+
+  const base = splitFile.name.replace(/\.pdf$/i, '');
+  showStatus('Splitting PDF…');
+
+  try {
+    if (!engineReady()) {
+      hideStatus();
+      return;
+    }
+
+    window.PTPro && window.PTPro.beacon('processStart');
+    if (splitMode === 'extract') {
+      let idx;
+
+      try {
+        idx = parseRange(
+          document.getElementById('pageRange').value,
+          splitFile.pageCount
+        );
+      } catch (rangeError) {
+        hideStatus();
+        return toast(rangeError.message);
+      }
+
+      if (!idx.length) {
+        hideStatus();
+        return toast('Enter valid page numbers, e.g. 1-3, 5');
+      }
+
+      const src = await PDFDocument.load(splitFile.bytes, { ignoreEncryption: true });
+      const out = await PDFDocument.create();
+
+      (await out.copyPages(src, idx)).forEach(p => out.addPage(p));
+
+      const bytes = await out.save();
+      const name = base + '-pages.pdf';
+
+      download(bytes, name);
+      ptEvent('split_success', { mode: 'extract', page_count: idx.length });
+      window.PTPro && window.PTPro.beacon('processSuccess');
+      showResult('Extracted ' + idx.length + ' page(s) — ' + fmtSize(splitFile.bytes.byteLength) + ' → ' + fmtSize(bytes.length) + ' 🎉', [{ name, bytes }]);
+    } else if (splitMode === 'every') {
+      if (!zipReady()) {
+        hideStatus();
+        return;
+      }
+
+      const rawN = Number(document.getElementById('everyN').value);
+
+      if (!Number.isInteger(rawN) || rawN < 1) {
+        hideStatus();
+        return toast('Enter a whole number of pages greater than zero.');
+      }
+
+      const n = rawN;
+      const src = await PDFDocument.load(splitFile.bytes, { ignoreEncryption: true });
+      const zip = new JSZip();
+      let count = 0;
+
+      for (let s = 0; s < splitFile.pageCount; s += n) {
+        const idx = [];
+
+        for (let i = s; i < Math.min(s + n, splitFile.pageCount); i++) {
+          idx.push(i);
+        }
+
+        const out = await PDFDocument.create();
+        (await out.copyPages(src, idx)).forEach(p => out.addPage(p));
+        zip.file(base + '-part' + (++count) + '.pdf', await out.save());
+      }
+
+      const blob = await zip.generateAsync({ type: 'blob' });
+      const name = base + '-split.zip';
+
+      downloadBlob(blob, name);
+      ptEvent('split_success', { mode: 'every', file_count: count });
+      window.PTPro && window.PTPro.beacon('processSuccess');
+      showResult('Split into ' + count + ' files (ZIP) — ' + fmtSize(splitFile.bytes.byteLength) + ' → ' + fmtSize(blob.size) + ' 🎉', [{ name, blob }]);
+    } else {
+      if (!zipReady()) {
+        hideStatus();
+        return;
+      }
+
+      const src = await PDFDocument.load(splitFile.bytes, { ignoreEncryption: true });
+      const zip = new JSZip();
+
+      for (let i = 0; i < splitFile.pageCount; i++) {
+        const out = await PDFDocument.create();
+
+        (await out.copyPages(src, [i])).forEach(p => out.addPage(p));
+        zip.file(base + '-page-' + (i + 1) + '.pdf', await out.save());
+      }
+
+      const blob = await zip.generateAsync({ type: 'blob' });
+      const name = base + '-pages.zip';
+
+      downloadBlob(blob, name);
+      ptEvent('split_success', { mode: 'all', page_count: splitFile.pageCount });
+      window.PTPro && window.PTPro.beacon('processSuccess');
+      showResult('All ' + splitFile.pageCount + ' pages exported (ZIP) — ' + fmtSize(splitFile.bytes.byteLength) + ' → ' + fmtSize(blob.size) + ' 🎉', [{ name, blob }]);
+    }
+  } catch (e) {
+    toast('Split failed. Please check that the PDF is valid and try again.');
+  }
+
+  hideStatus();
+}
+
+/* ── Helpers ── */
+function download(bytes, name, label) {
+  const blob = new Blob([bytes], { type: 'application/pdf' });
+  downloadBlob(blob, name, label || 'file');
+}
+
+function downloadBlob(blob, name, label) {
+  ptEvent('download_clicked', { result_type: label || 'file' });
+  window.PTPro && window.PTPro.beacon('downloadClicked');
+
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  /* download_success = download started: the click above was dispatched
+   * on a valid blob-URL anchor. Browsers expose no download-completion
+   * signal to the page, so "started" is the honest definition. */
+  window.PTPro && window.PTPro.beacon('downloadSuccess');
+
+  setTimeout(() => {
+    URL.revokeObjectURL(a.href);
+    a.remove();
+  }, 4000);
+}
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[c]));
+}
+
+function showStatus(t) {
+  document.getElementById('status').classList.remove('hidden');
+  document.getElementById('statusText').textContent = t;
+  document.getElementById('result').classList.add('hidden');
+}
+
+function hideStatus() {
+  document.getElementById('status').classList.add('hidden');
+}
+
+function showResult(text, files) {
+  document.getElementById('resultText').textContent = text;
+
+  const box = document.getElementById('resultLinks');
+  box.innerHTML = '';
+
+  files.forEach(f => {
+    const b = document.createElement('button');
+    b.className = 'px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-sm transition';
+    b.textContent = '⬇️ ' + f.name;
+    b.onclick = () => f.bytes
+      ? download(f.bytes, f.name)
+      : downloadBlob(f.blob, f.name);
+
+    box.appendChild(b);
+  });
+
+  document.getElementById('result').classList.remove('hidden');
+  document.getElementById('result').scrollIntoView({
+    behavior: 'smooth',
+    block: 'nearest'
+  });
+}
+
+function hideResult() {
+  document.getElementById('result').classList.add('hidden');
+}
+
+async function makeSamplePDF(pages, title) {
+  if (!engineReady()) return;
+  const doc = await PDFDocument.create();
+  const font = await doc.embedFont(window.PDFLib.स्टैंडर्डFonts.Helvetica);
+  for (let i = 1; i <= pages; i++) {
+    const pg = doc.addPage([595, 842]);
+    pg.drawText(title + ' — page ' + i + ' of ' + pages, { x: 50, y: 780, size: 20, font: font });
+    pg.drawText('ProTools sample file — free demo, no upload needed.', { x: 50, y: 750, size: 12, font: font });
+  }
+  return await doc.save();
+}
+async function makeSampleMerge() {
+  showStatus('Sample PDFs bana rahe hain…');
+  try {
+    const b1 = await makeSamplePDF(2, 'Sample PDF 1');
+    const b2 = await makeSamplePDF(3, 'Sample PDF 2');
+    mergeFilesArr.push({ name: 'sample-1.pdf', bytes: b1.buffer.slice(b1.byteOffset, b1.byteOffset + b1.byteLength) });
+    mergeFilesArr.push({ name: 'sample-2.pdf', bytes: b2.buffer.slice(b2.byteOffset, b2.byteOffset + b2.byteLength) });
+    ptEvent('file_selected', { tool: 'merge', file_count: 2, sample: true });
+    renderMergeList();
+  } catch (e) { toast('Sample nahi ban paya — page refresh karo.'); }
+  hideStatus();
+}
+async function makeSampleSplit() {
+  showStatus('Sample PDF bana rahe hain…');
+  try {
+    const b = await makeSamplePDF(6, 'Sample PDF');
+    const f = new File([b], 'sample-6-pages.pdf', { type: 'application/pdf' });
+    addSplitFile([f]);
+  } catch (e) { toast('Sample nahi ban paya — page refresh karo.'); hideStatus(); }
+}
+try { var _pt = new URLSearchParams(location.search).get('tool') || (location.hash || '').replace('#', ''); if (_pt === 'split') switchTab('split'); else if (_pt === 'merge') switchTab('merge'); } catch (e) {}
+window.addEventListener('pagehide', function(){ try { mergeFilesArr = []; splitFile = null; } catch (e) {} });
+let toastT;
+
+function toast(msg) {
+  let t = document.getElementById('toast');
+
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast';
+    t.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-red-600 text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-2xl z-50';
+    document.body.appendChild(t);
+  }
+
+  t.textContent = msg;
+  t.style.display = 'block';
+
+  clearTimeout(toastT);
+  toastT = setTimeout(() => t.style.display = 'none', 3200);
+}
+</script>
+<div id="protools-banner" class="m3-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#4C1D95,#7C3AED);color:#fff;padding:8px 12px;flex-wrap:nowrap;align-items:center;gap:8px;box-shadow:0 -4px 20px rgba(0,0,0,.25);font-family:system-ui,sans-serif;">
+  <div style="font-size:20px;">🚀</div>
+  <div style="flex:1 1 auto;min-width:0;">
+    <div class="banner-title" style="font-weight:800;font-size:13px;">ProTools ऐप — सब कुछ एक जगह!</div>
+    <div class="banner-sub" style="font-size:12px;opacity:.9;">PDF टूल • इमेज रिसाइज़र • AI असिस्टेंट • बिज़नेस टूल — 100% मुफ्त</div>
+  </div>
+  <button onclick="installPWA()" class="pwa-install-btn" style="flex:0 0 auto;background:#7c3aed;color:#fff;font-weight:800;font-size:13px;padding:8px 12px;border-radius:10px;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(124,58,237,.35);border:none;cursor:pointer;white-space:nowrap;">📲 इंस्टॉल करें — मुफ्त</button>
+  <span onclick="dismissBanner()" style="cursor:pointer;opacity:.7;font-size:18px;padding:4px;" role="button" aria-label="Close">✕</span>
+</div>
+
+<div id="bottom-spacer" style="height:56px;display:none;"></div>
+
+<script>
+let pwaPrompt = null;
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  pwaPrompt = e;
+  document.querySelectorAll('.pwa-install-btn').forEach(b => {
+    b.style.display = 'block';
+  });
+});
+
+async function installPWA() {
+  if (pwaPrompt) {
+    pwaPrompt.prompt();
+
+    const c = await pwaPrompt.userChoice;
+    ptEvent('pwa_install_prompt', {
+      outcome: (c && c.outcome) || 'unknown'
+    });
+
+    pwaPrompt = null;
+  } else {
+    ptEvent('pwa_install_prompt', { outcome: 'redirected_to_app' });
+    location.href = '/app/';
+  }
+}
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js', {
+      updateViaCache: 'none'
+    }).then(function(reg) {
+      try {
+        reg.update();
+      } catch (e) {
+        /* Update checks must not break the tool. */
+      }
+    }).catch(function() {
+      /* Offline or unsupported; app remains usable. */
+    });
+  });
+}
+
+/* Install banner waits for the consent decision (Fix 5): the consent
+ * bar must never hide behind the install banner. Shown on the
+ * rps-consent-decided event (consent-banner.js) or when a v2 decision
+ * is already stored. */
+(function () {
+  var banner = document.getElementById('protools-banner');
+  var spacer = document.getElementById('bottom-spacer');
+  function decided() {
+    try {
+      var c = JSON.parse(window.localStorage.getItem('rps-consent-v1') || 'null');
+      return !!(c && c.version === 'v2');
+    } catch (e) { return false; }
+  }
+  function show() {
+    try { if (window.localStorage.getItem('pt-banner-dismissed') === '1') return; } catch (e) {}
+    if (banner) banner.style.display = 'flex';
+    if (spacer) spacer.style.display = 'block';
+  }
+  window.dismissBanner = function () {
+    try { window.localStorage.setItem('pt-banner-dismissed', '1'); } catch (e) {}
+    if (banner) banner.style.display = 'none';
+    if (spacer) spacer.style.display = 'none';
+  };
+  if (decided()) { show(); return; }
+  window.addEventListener('rps-consent-decided', show);
+  var n = 0;
+  var t = setInterval(function () {
+    if (decided()) { show(); clearInterval(t); }
+    else if (++n > 120) clearInterval(t);
+  }, 500);
+})();
+</script>
+</body>
+</html>

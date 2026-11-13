@@ -1,0 +1,5 @@
+supabase-config.txt
+supabase-migrations/
+chatgpt-review/
+CHATGPT-FIXES-2026-10-19.md
+netlify.toml

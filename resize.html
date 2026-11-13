@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="hi"><head><script src="/tracking-beacon-v2.js" defer></script><script src="/consent-banner.js" defer></script><script src="/pro-limits.js" defer></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://pdf-merge-split-free.vercel.app/resize">
+<link rel="alternate" hreflang="en" href="https://pdf-merge-split-free.vercel.app/resize"><title>Resize Image to Any KB — Free Online Photo Resizer | ProTools</title><meta name="description" content="Photo ko exact KB me resize karo — 10 se 500 KB tak target chuno. Free, no signup, browser me hi process hoti hai."><meta name="keywords" content="ssc photo resize 20kb, ssc photo 20kb to 50kb, ssc form photo size, sarkari form photo resize"><meta property="og:title" content="Resize Image to Any KB — Free Online Photo Resizer | ProTools"><meta property="og:description" content="Photo ko exact KB me resize karo — 10 se 500 KB tak target chuno. Free, no signup, browser me hi process hoti hai."><script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "SSC Photo Resize 20KB to 50KB — Free Online | ProTools", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Photo ka size kitna hona chahiye?", "acceptedAnswer": {"@type": "Answer", "text": "Har form ke notification me size alag ho sakta hai. Apne form ke notification me diya hua exact size check karein, phir tool me wahi target chunein."}}, {"@type": "Question", "name": "Kya photo upload hoti hai?", "acceptedAnswer": {"@type": "Answer", "text": "Nahi. Photo aapke browser me hi compress hoti hai, kisi server par upload nahi hoti."}}, {"@type": "Question", "name": "Full result kaise milega?", "acceptedAnswer": {"@type": "Answer", "text": "Full result turant download hoga — preview clear dikhega, koi install zaroori nahi."}}]}]</script><script src="https://cdn.tailwindcss.com"></script><style> </style><meta name="theme-color" content="#7c3aed"><link rel="manifest" href="/manifest.json"><link rel="icon" href="/icon-192.png"><link rel="apple-touch-icon" href="/icon-192.png"><!-- GA4 (enabled 4 Nov 2026, Ravi order — reverses 19 Oct audit disable) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQ37PEB4LY"></script> <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};try{window.gtag=gtag;gtag("js",new Date());gtag("config","G-TQ37PEB4LY");}catch(e){}</script><link rel="stylesheet" href="/m3.css"></head><body class="m3-surface text-white min-h-screen"><div class="max-w-2xl mx-auto px-4 py-6"><h1 class="text-2xl font-extrabold text-center mb-1 m3-display">🖼️ Resize Image to Any KB</h1><p class="text-center m3-on-variant mb-6 text-sm">Photo ko apne chune hue size (10–500 KB) me karo — free, no signup</p><p class="text-center text-xs m3-tertiary-text mb-6">⚠️ Form ke liye photo chahiye? Apne form ke notification me diya hua exact size check karein, phir wahi target chunein.</p>
+<div class="m3-surface-2 m3-shape-lg p-5 mb-4"><label class="block w-full cursor-pointer border-2 border-dashed border-blue-500 m3-shape-md p-8 text-center hover:border-blue-300"><span class="text-4xl">📷</span><br><span class="font-bold">Photo Select Karo</span><br><span class="text-xs m3-on-variant">JPG / PNG — file aapke browser me hi process hoti hai, upload nahi hoti</span><br><span class="text-xs m3-on-variant">Free limit: 5 MB photo — Pro allows 20 MB</span><br><span style="color:#4ade80">🔒 Files never leave your device — tab band karte hi sab clear ho jata hai</span><input type="file" id="fileInput" accept="image/*" class="hidden"></label><div class="mt-3 text-center"><button type="button" id="sampleBtn" class="text-xs m3-primary-text underline">Sample photo se try karo — upload kiye bina</button></div>
+<label class="block mt-4 text-sm m3-on-variant">Target size (KB): <input type="number" id="targetKb" value="100" min="10" max="500" style="background:#12121f;color:#fff;border:1px solid #374151;border-radius:8px;padding:6px;width:90px"></label><div class="flex flex-wrap gap-2 mt-2"><button type="button" class="kb-chip" data-kb="20">20 KB</button><button type="button" class="kb-chip" data-kb="50">50 KB</button><button type="button" class="kb-chip on" data-kb="100">100 KB</button><button type="button" class="kb-chip" data-kb="200">200 KB</button></div></div>
+<div id="resultArea" class="hidden"><div class="m3-surface-2 m3-shape-lg p-5 mb-4 relative overflow-hidden"><p class="text-sm m3-on-variant mb-2">Preview:</p><div class="relative"><img id="preview" class="w-full m3-shape-md" alt="resized preview"></div><div class="mt-3"><p class="text-xs m3-on-variant mb-1">Before / After — slider ghumao:</p><div class="relative overflow-hidden m3-shape-md"><img id="cmpBefore" class="w-full block" alt="original photo"><img id="cmpAfter" class="w-full block absolute inset-0" style="clip-path:inset(0 0 0 50%)" alt="resized photo"><div id="cmpDiv" class="absolute top-0 bottom-0" style="left:50%;width:2px;background:#fff"></div></div><input type="range" id="cmpRange" min="0" max="100" value="50" class="w-full mt-2" aria-label="Before after compare"></div><p id="sizeInfo" class="text-xs m3-on-variant mt-2 text-center"></p><a id="downloadBtn" href="#" download="ssc-photo-20-50kb.jpg" class="block text-center mt-3 m3-btn m3-btn-primary" style="background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;font-weight:800;font-size:16px;padding:14px;border-radius:12px;text-decoration:none;">⬇️ Full Result Download Karo</a><p class="text-xs text-center m3-on-variant mt-2">📲 Offline use ke liye <a href="/app" class="underline">ProTools App install karo</a> — free, optional hai.</p></div></div>
+<p class="text-center text-xs m3-on-variant mb-4">No signup • File browser me hi process hoti hai • Free download, no install</p><div class="m3-surface-2 m3-shape-lg p-5 mb-4"><h2 class="font-bold mb-3 text-lg m3-headline">📋 Complete Guide</h2><h3 class="font-bold text-sm mt-4 mb-2 m3-tertiary-text">Kahan kaam ayega?</h3><ul class="text-sm m3-on-variant space-y-1 list-disc list-inside"><li>Form uploads: 10–500 KB ke beech apna target chunein</li><li>Email / WhatsApp ke liye chhoti photo</li><li>Size: 10–500 KB — apna target chunein</li></ul><h3 class="font-bold text-sm mt-4 mb-2 m3-tertiary-text">Step-by-step kaise karein?</h3><ol class="text-sm m3-on-variant space-y-2 list-decimal list-inside"><li>Photo chuno: JPG ya PNG select karo</li><li>Target size chuno: 10–500KB ke beech</li><li>Preview dekho: clear preview dikhega</li><li>Download karo — turant, koi install nahi chahiye.</li></ol><h3 class="font-bold text-sm mt-4 mb-2 m3-tertiary-text">Limitations — imaandari se</h3><ul class="text-sm m3-on-variant space-y-1 list-disc list-inside"><li>Sirf file size kam karta hai — photo ke dimensions (pixels) crop nahi karta</li><li>Photo browser me process hoti hai — upload nahi hoti</li><li>Size har notification me alag ho sakta hai — apne form ka notification check karein.</li><li>Bahut chhoti file me thodi quality kam hogi — ye normal hai, form ke liye chalegi</li></ul><h3 class="font-bold text-sm mt-4 mb-2 m3-tertiary-text">FAQs</h3><div class="text-sm m3-on-variant space-y-2"><p><b>Q: Photo ka size kitna hona chahiye?</b><br>A: Har form ke notification me size alag ho sakta hai. Apne form ke notification me diya hua exact size check karein, phir tool me wahi target chunein.</p><p><b>Q: Kya photo upload hoti hai?</b><br>A: Nahi. Photo aapke browser me hi compress hoti hai, kisi server par upload nahi hoti.</p><p><b>Q: Full result kaise milega?</b><br>A: Full result turant download hoga — preview clear dikhega, koi install zaroori nahi.</p></div></div><p class="text-center text-xs m3-on-variant">Made by ProTools • <a href="index.html" class="underline">PDF Tools</a> • <a href="/guides/" class="underline">Guides</a> • <a href="/about" class="underline">About</a></p></div>
+<script> let __anchorUrl = null; let __downloadedUrls = new Set(); let __dlSeq = 0;
+let __pendingUrls = new Set();
+let __pageHidden = false; let __lifecycleCleaned = false;
+let __lastCompletedSeq = -1;
+let __lifecycleGen = 0;
+function __revokeOwned(url) {
+  if (!url || typeof url !== 'string' || url.indexOf('blob:') !== 0) { return; }
+  var owned = false;
+  if (__anchorUrl === url) { __anchorUrl = null; owned = true; }
+  if (__downloadedUrls.has(url)) { __downloadedUrls.delete(url); owned = true; }
+  if (__pendingUrls.has(url)) { __pendingUrls.delete(url); owned = true; }
+  if (owned) { URL.revokeObjectURL(url); }
+}
+/* Gate removed 2026-11-06 (fix 05): always allows download. Kept for blob-URL lifecycle. */
+function __gateAllowsDownload() {
+  if (typeof unlockDownload !== 'function') { return true; }
+  return document.querySelectorAll('.blur-lock').length === 0;
+}
+function __restoreDownloadButton() {
+  var btn = document.getElementById('downloadBtn');
+  if (btn && __gateAllowsDownload()) { btn.style.display = 'block'; }
+}
+document.getElementById('downloadBtn').addEventListener('click', function(){
+  var href = document.getElementById('downloadBtn').href;
+  if (href && href.indexOf('blob:') === 0) { __downloadedUrls.add(href); }
+});
+window.addEventListener('pagehide', function() {
+  if (__lifecycleCleaned) { return; }
+  __lifecycleGen++;
+  __lifecycleCleaned = true; __pageHidden = true;
+  var __toRevoke = new Set(__downloadedUrls);
+  __pendingUrls.forEach(function(u) { __toRevoke.add(u); });
+  if (__anchorUrl) { __toRevoke.add(__anchorUrl); }
+  __toRevoke.forEach(function(u) { __revokeOwned(u); });
+  __downloadedUrls.clear(); __anchorUrl = null; __pendingUrls.clear();
+});
+window.addEventListener('pageshow', function(e) {
+  var __wasCleaned = __lifecycleCleaned;
+  if (!(e.persisted === true || __wasCleaned === true)) { return; }
+  if (__wasCleaned === false) {
+    var __toRevokeShow = new Set(__downloadedUrls);
+    __pendingUrls.forEach(function(u) { __toRevokeShow.add(u); });
+    if (__anchorUrl) { __toRevokeShow.add(__anchorUrl); }
+    __toRevokeShow.forEach(function(u) { __revokeOwned(u); });
+  }
+  __anchorUrl = null; __downloadedUrls.clear(); __pendingUrls.clear();
+  var __btn = document.getElementById('downloadBtn');
+  if (__btn) {
+    __btn.style.display = 'none';
+    __btn.removeAttribute('href');
+  }
+  __lifecycleGen++;
+  __pageHidden = false; __lifecycleCleaned = false;
+}); document.querySelectorAll('.kb-chip').forEach(function(b){ b.addEventListener('click', function(){ document.getElementById('targetKb').value = b.getAttribute('data-kb'); document.querySelectorAll('.kb-chip').forEach(function(x){ x.classList.toggle('on', x === b); }); }); }); var __sb = document.getElementById('sampleBtn'); if (__sb) __sb.addEventListener('click', function(){ var c = document.createElement('canvas'); c.width = 800; c.height = 600; var x = c.getContext('2d'); var g = x.createLinearGradient(0,0,800,600); g.addColorStop(0,'#7c3aed'); g.addColorStop(1,'#0ea5e9'); x.fillStyle = g; x.fillRect(0,0,800,600); x.fillStyle = '#fff'; x.font = 'bold 48px sans-serif'; x.fillText('SAMPLE PHOTO', 210, 290); x.font = '28px sans-serif'; x.fillText('ProTools demo', 300, 340); c.toBlob(function(b){ if(!b) return; var f = new File([b], 'sample-photo.jpg', {type:'image/jpeg'}); var dt = new DataTransfer(); dt.items.add(f); var inp = document.getElementById('fileInput'); inp.files = dt.files; inp.dispatchEvent(new Event('change')); }, 'image/jpeg', 0.9); }); document.getElementById('fileInput').addEventListener('change', function(e){ var __myGen = __lifecycleGen; const file = e.target.files[0]; if(!file) return;
+  if (window.PTPro && window.PTPro.guardFile) { var __g = window.PTPro.guardFile(file, 'photo'); if (!__g.ok) { e.target.value = ''; var __si = document.getElementById('sizeInfo'); if (__si) __si.textContent = __g.reason; document.getElementById('resultArea').classList.remove('hidden'); try { if (window.PTPro) window.PTPro.beacon('processError', 'processing_failed'); } catch (e3) {} return; } } if (window.PTPro && !window.PTPro.allowSync(file, 'photo')) { e.target.value = ''; window.PTPro.promptForFile(file, 'photo', function (okFile) { var dt = new DataTransfer(); dt.items.add(okFile); e.target.files = dt.files; e.target.dispatchEvent(new Event('change')); }); return; }  const target = parseInt(document.getElementById('targetKb').value)||35; const img = new Image(); img.onload = function(){ try { if (__myGen !== __lifecycleGen) { return; } if (img.naturalWidth * img.naturalHeight > 40000000) { var __si2 = document.getElementById('sizeInfo'); if (__si2) __si2.textContent = 'Photo bahut badi hai (40MP se zyada pixels) — phone par crash ho sakti hai. Chhoti photo try karo.'; document.getElementById('resultArea').classList.remove('hidden'); try { if (window.PTPro) window.PTPro.beacon('processError', 'processing_failed'); } catch (e3) {} return; } const canvas = document.createElement('canvas'); const MAX = 800; let w = img.width, h = img.height; if(w > MAX){ h = h*MAX/w; w = MAX; } canvas.width = w; canvas.height = h; canvas.getContext('2d').drawImage(img,0,0,w,h); let q = 0.85, lo = 0.05, hi = 0.9, out; const loKb = Math.round(target*0.9), hiKb = Math.round(target*1.1); for(let i=0;i<12;i++){ out = canvas.toDataURL('image/jpeg', q); const kb = Math.round(out.length*0.75/1024); if(kb > hiKb){ hi = q; q = (q+lo)/2; } else if(kb < loKb){ lo = q; q = (q+hi)/2; } else break; } document.getElementById('preview').src = out; try { var __cb = document.getElementById('cmpBefore'), __ca = document.getElementById('cmpAfter'), __cr = document.getElementById('cmpRange'), __cd = document.getElementById('cmpDiv'); if (__cb && __ca) { __cb.src = __origUrl; __ca.src = out; var __upd = function(){ var v = __cr ? __cr.value : 50; __ca.style.clipPath = 'inset(0 0 0 ' + v + '%)'; if (__cd) __cd.style.left = v + '%'; }; if (__cr) __cr.addEventListener('input', __upd); __upd(); } } catch (e2) {}  const kb = Math.round(out.length*0.75/1024); document.getElementById('sizeInfo').textContent = 'Original: ' + Math.round(file.size/1024) + ' KB → Compressed: ~' + kb + ' KB (' + Math.max(0, Math.round((1 - kb*1024/file.size)*100)) + '% chhota) ' + ((kb >= Math.round(target*0.9) && kb <= Math.round(target*1.1)) ? ' \u2713 — target ke andar hai' : ' \u26a0\ufe0f — target se ' + (kb < Math.round(target*0.9) ? 'neeche' : 'upar') + ' hai. ' + (kb < Math.round(target*0.9) ? 'Photo me detail kam hai — badi ya clear photo try karo, ya target badhao.' : 'Target kam karo ya quality setting badhao.')); var __mySeq = ++__dlSeq; if (__pageHidden || __lifecycleCleaned) { return; } if (typeof canvas.toBlob === 'function') { try { canvas.toBlob(function(blob) {
+         if (__myGen !== __lifecycleGen) { return; }
+         if (__mySeq !== __dlSeq) { return; }
+         if (__mySeq === __lastCompletedSeq) { return; }
+         if (__pageHidden || __lifecycleCleaned) { return; }
+         const oldURL = __anchorUrl;
+         __lastCompletedSeq = __mySeq;
+         if (!blob) {
+           if (!__anchorUrl) {
+             var __db = document.getElementById('downloadBtn');
+             __db.style.display = 'none';
+             document.getElementById('sizeInfo').textContent = 'Download taiyaar nahi ho saka \u2014 photo dobara chunein.';
+           }
+           console.log('toBlob returned null'); return;
+         }
+         var newUrl = null; var __registered = false; var __orphanRevoked = false;
+         function __revokeOrphan(u) {
+           if (u && !__registered && !__orphanRevoked) {
+             __orphanRevoked = true; URL.revokeObjectURL(u);
+           }
+         }
+         var __btn = document.getElementById('downloadBtn');
+         var prev = oldURL;
+         var prevHref = __btn ? __btn.getAttribute('href') : null;
+         var __rollbackDone = false;
+         function __rollbackRegistration() {
+           if (__registered || __rollbackDone) { return __rollbackDone; }
+           try {
+             __anchorUrl = prev;
+             if (__btn) {
+               if (prevHref) { __btn.href = prevHref; }
+               else { __btn.removeAttribute('href'); }
+             }
+             __rollbackDone = true;
+             return true;
+           } catch (rbErr) {
+             console.log('rollback setter error');
+             __anchorUrl = oldURL;
+             return false;
+           }
+         }
+         try {
+           newUrl = URL.createObjectURL(blob);
+           if (__myGen !== __lifecycleGen || __pageHidden || __lifecycleCleaned) {
+             __revokeOrphan(newUrl); return;
+           }
+           __anchorUrl = newUrl;
+           document.getElementById('downloadBtn').href = newUrl;
+           __registered = true;
+           __restoreDownloadButton();
+           if (prev && prev !== newUrl && !__downloadedUrls.has(prev)) {
+             URL.revokeObjectURL(prev);
+           }
+         } catch (err) {
+           console.log('toBlob callback error');
+           if (newUrl && !__registered) {
+             if (__rollbackRegistration()) {
+               __pendingUrls.delete(newUrl);
+               __revokeOrphan(newUrl);
+             } else {
+               __pendingUrls.add(newUrl);
+               try {
+                 var __actualHref = __btn ? __btn.getAttribute('href') : null;
+                 if (__actualHref && __actualHref.indexOf('blob:') === 0
+                     && __actualHref !== oldURL && __actualHref !== newUrl
+                     && __actualHref !== prev) {
+                   __pendingUrls.add(__actualHref);
+                 }
+               } catch (__hrefErr) {
+                 console.log('actual href read failed; oldURL and newUrl retained');
+               }
+             }
+           }
+         } finally {
+           if (newUrl && !__registered) {
+             if (__rollbackRegistration()) {
+               __pendingUrls.delete(newUrl);
+               __revokeOrphan(newUrl);
+             } else {
+               __pendingUrls.add(newUrl);
+               try {
+                 var __actualHref2 = __btn ? __btn.getAttribute('href') : null;
+                 if (__actualHref2 && __actualHref2.indexOf('blob:') === 0
+                     && __actualHref2 !== oldURL && __actualHref2 !== newUrl
+                     && __actualHref2 !== prev) {
+                   __pendingUrls.add(__actualHref2);
+                 }
+               } catch (__hrefErr2) {
+                 console.log('actual href read failed; oldURL and newUrl retained');
+               }
+             }
+           }
+         }
+       }, 'image/jpeg', q); } catch (e) { if (!__anchorUrl) { var __db2 = document.getElementById('downloadBtn'); __db2.style.display = 'none'; document.getElementById('sizeInfo').textContent = 'Download taiyaar nahi ho saka \u2014 photo dobara chunein.'; } console.log('toBlob error'); } } else { document.getElementById('downloadBtn').href = out; __restoreDownloadButton(); } document.getElementById('resultArea').classList.remove('hidden'); document.getElementById('resultArea').scrollIntoView({behavior:'smooth'}); } catch (__err) { try { var __si3 = document.getElementById('sizeInfo'); if (__si3) __si3.textContent = 'Photo process nahi ho payi — file bahut badi ya unsupported ho sakti hai. Chhoti photo try karo.'; document.getElementById('resultArea').classList.remove('hidden'); try { if (window.PTPro) window.PTPro.beacon('processError', 'processing_failed'); } catch (e3) {} } catch (e2) {} } }; var __origUrl = URL.createObjectURL(file); img.src = __origUrl; }); </script>
+<script>
+if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js');} </script>
+<footer class="border-t m3-border m3-surface-2 mt-8 m3-footer"><div class="max-w-5xl mx-auto px-4 py-6 text-center text-xs m3-on-variant"><div class="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-3"><a href="/privacy-policy.html" class="hover:text-slate-300">Privacy Policy</a><a href="/terms.html" class="hover:text-slate-300">Terms of Service</a><a href="/refund-policy" class="hover:text-slate-300">Refund Policy</a></div><p class="font-semibold m3-on-variant">🛠️ ProTools — Free Online Tools</p><p class="mt-1">No signup · No watermark · Your files never leave your browser</p><p class="mt-1">Operated by Ravi Pratap Singh · RPS World, Kanpur, India</p></div></footer><script>/* GA4 Layer B — ptEvent wiring (4 Nov 2026, Ravi order). Tool logic untouched: only additive listeners + one resultArea observer. Analytics must never block the tool. */
+function ptEvent(name, params) { try { var payload = Object.assign({}, params || {}, { event_source: 'protools_pdf_tool' }); if (typeof window.gtag === 'function') window.gtag('event', name, payload); } catch (e) {} }
+(function(){ var TOOL = 'ssc'; var completedFired = false;
+  try { ptEvent('tool_open', { tool: TOOL }); } catch (e) {}
+  var fi = document.getElementById('fileInput');
+  if (fi) fi.addEventListener('change', function(){ completedFired = false; try { ptEvent('file_selected', { tool: TOOL }); if (window.PTPro) window.PTPro.beacon('fileSelected', fi.files); if (window.PTPro) window.PTPro.beacon('processStart'); } catch (e) {} });
+  var dl = document.getElementById('downloadBtn') || document.getElementById('dlBtn');
+  if (dl) dl.addEventListener('click', function(){ try { ptEvent('download_clicked', { tool: TOOL }); if (window.PTPro) window.PTPro.beacon('downloadClicked'); if (window.PTPro) window.PTPro.beacon('downloadSuccess'); } catch (e) {} });
+  var ra = document.getElementById('resultArea');
+  if (ra && window.MutationObserver) { new MutationObserver(function(){ if (!completedFired && !ra.classList.contains('hidden')) { var __dl = document.getElementById('downloadBtn'); var __href = __dl ? (__dl.getAttribute('href') || '') : ''; var __vis = !!__dl && __dl.style.display !== 'none' && !__dl.classList.contains('hidden'); if (__vis && __href.indexOf('blob:') === 0) { completedFired = true; try { ptEvent('tool_completed', { tool: TOOL }); if (window.PTPro) window.PTPro.beacon('processSuccess'); } catch (e) {} } } }).observe(ra, { attributes: true, attributeFilter: ['class'] }); }
+})();</script></body></html>

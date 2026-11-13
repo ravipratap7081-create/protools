@@ -1,0 +1,359 @@
+/* ==========================================================================
+   ProTools — M3 Expressive shared theme (m3.css)
+   SINGLE SOURCE OF TRUTH for the M3 look + the Rainbow Prism button (#20).
+   - Linked from every page as /m3.css (inserted just before </head>, AFTER
+     each page's own <style> block, so these rules win ties on equal
+     specificity). No new external origin: self-hosted, system font stack.
+   - LOOK ONLY: no ids, no JS, no hrefs touched. .blur-lock (download gate)
+     is deliberately NOT overridden here.
+   - BUTTONS: Rainbow Prism (#20, Ravi's pick 6 Nov 2026) — values VERBATIM
+     from the gallery source (~/workspace/ts-spaces/m3-button-designs-20-
+     raised-glassy-styles/index.html, .demo base + .b20). Raised/elevated,
+     glassy translucent surface (backdrop blur 14px saturate 170%), rainbow
+     prism gradient animated 6s linear infinite, gloss sweep ::after, pill
+     shape, hover translateY(-3px) scale(1.02), press translateY(2px)
+     scale(.93). Every primary CTA uses .m3-btn (alias .m3-btn-primary).
+     Secondary actions use .m3-btn-tonal (glassy surface, rainbow gradient
+     border). To swap the button style later, edit ONLY the .m3-btn rules below.
+   ========================================================================== */
+
+:root {
+  /* M3 dark colour roles (navy-tinted to continue the site's #12121f) */
+  --m3-surface: #12121f;
+  --m3-surface-1: #1a1a2e;
+  --m3-surface-2: #1e1e2e;
+  --m3-surface-3: #262640;
+  --m3-on-surface: #e6e0e9;
+  --m3-on-variant: #c9c3d4;
+  --m3-outline: #4a4757;
+  --m3-outline-variant: #2e2c3a;
+  --m3-primary: #d0bcff;
+  --m3-primary-container: #4f378b;
+  --m3-on-primary-container: #eaddff;
+  --m3-secondary-container: #4a4458;
+  --m3-tertiary: #ffd98a;
+
+  /* Expressive asymmetric corner radii (large top-left + small bottom-right) */
+  --m3-r-lg: 28px 12px 28px 12px;
+  --m3-r-md: 20px 8px 20px 8px;
+  --m3-r-sm: 16px 6px 16px 6px;
+
+  /* Bouncy M3 motion */
+  --m3-ease: cubic-bezier(.34, 1.56, .64, 1);
+  --m3-ease-btn: cubic-bezier(.34, 1.56, .64, 1);
+
+  /* M3 elevation shadows */
+  --m3-shadow-1: 0 1px 2px rgba(0, 0, 0, .35), 0 1px 3px 1px rgba(0, 0, 0, .25);
+  --m3-shadow-2: 0 2px 6px 2px rgba(0, 0, 0, .30), 0 1px 2px rgba(0, 0, 0, .35);
+  --m3-shadow-3: 0 4px 8px 3px rgba(0, 0, 0, .30), 0 1px 3px rgba(0, 0, 0, .40);
+
+  /* Rainbow Prism (#20) — BATCH 1 (10 Nov 2026): solidified.
+     Was 7 stops at 0.5–0.62 alpha = washed pastel wash, different at
+     every button size (visual audit P1-3). Now 4 stops, alpha 1.0:
+     pink → violet → blue → pink. Rainbow is reserved for the MONEY
+     CTA only (Buy Pro); free actions use .m3-btn-solid below. */
+  --m3-prism: linear-gradient(110deg, #f472b6, #a855f7, #3b82f6, #f472b6);
+  --m3-shadow-btn: 0 16px 32px rgba(147, 51, 234, .35), 0 3px 0 rgba(255, 255, 255, .6) inset, 0 -9px 16px rgba(255, 255, 255, .22) inset;
+}
+
+/* --- Base surface / type (system font stack only; no webfonts) --- */
+body {
+  background: var(--m3-surface);
+  color: var(--m3-on-surface);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+}
+::-webkit-scrollbar-thumb { background: #6d5a9e; border-radius: 4px; }
+
+/* --- M3 surface / text / outline tokens (replace Tailwind slate classes) --- */
+.m3-surface { background: var(--m3-surface); }
+.m3-surface-2 {
+  background: var(--m3-surface-2);
+  border: 1px solid var(--m3-outline-variant);
+  box-shadow: var(--m3-shadow-1);
+}
+.m3-surface-3 {
+  background: var(--m3-surface-3);
+  border: 1px solid var(--m3-outline-variant);
+}
+.m3-scrim { background: rgba(0, 0, 0, .70); }
+.m3-success-container {
+  background: rgba(6, 78, 59, .55);
+  border: 1px solid rgba(16, 185, 129, .40);
+  box-shadow: var(--m3-shadow-1);
+}
+.m3-primary-soft { background: rgba(79, 55, 139, .35); }
+.m3-border { border-color: var(--m3-outline-variant); }
+.m3-hover-border:hover { border-color: var(--m3-primary); }
+.m3-on-surface { color: var(--m3-on-surface); }
+.m3-on-variant { color: var(--m3-on-variant); }
+.m3-primary-text { color: var(--m3-primary); }
+.m3-tertiary-text { color: var(--m3-tertiary); }
+
+/* --- Expressive shapes --- */
+.m3-shape-lg { border-radius: var(--m3-r-lg); }
+.m3-shape-md { border-radius: var(--m3-r-md); }
+.m3-shape-sm { border-radius: var(--m3-r-sm); }
+
+/* --- Expressive display type --- */
+.m3-display {
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  font-weight: 800;
+}
+/* Header brand titles share the flex row with the Buy Pro pill: keep them
+   expressive but compact so they never stack to 4 lines on a phone. */
+header h1.m3-display { font-size: 1.3rem; line-height: 1.2; }
+.m3-headline { letter-spacing: -.01em; }
+.m3-appbar { box-shadow: var(--m3-shadow-1); }
+.m3-footer { box-shadow: var(--m3-shadow-1); }
+
+/* ==========================================================================
+   RAINBOW PRISM BUTTON (#20) — the one button class for every primary CTA.
+   VERBATIM from the gallery (.demo base + .b20), class names mapped to
+   .m3-btn / .m3-btn-primary. Sizing only is per-context: padding .85rem
+   1.75rem at .95rem font (gallery demo was 16px 34px at 16.5px).
+   One deliberate addition: overflow:hidden — in the gallery the gloss sweep
+   is clipped by the card (overflow:hidden, gallery line 133); live-site
+   buttons have no such ancestor, so the button clips its own sweep.
+   ========================================================================== */
+.m3-btn,
+.m3-btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 999px;
+  padding: .85rem 1.75rem;
+  font-weight: 800;
+  font-size: .95rem;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, .7);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+  background: var(--m3-prism);
+  background-size: 280% 100%;
+  animation: prism 6s linear infinite;
+  box-shadow: var(--m3-shadow-btn);
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  backdrop-filter: blur(14px) saturate(170%);
+  transition: transform .45s cubic-bezier(.34, 1.9, .64, 1), box-shadow .3s ease, filter .25s;
+  will-change: transform;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+  overflow: hidden; /* clips the gloss sweep; see note above */
+}
+.m3-btn:hover,
+.m3-btn-primary:hover { transform: translateY(-3px) scale(1.02); }
+.m3-btn:active,
+.m3-btn-primary:active { transform: translateY(2px) scale(.93); }
+.m3-btn::after,
+.m3-btn-primary::after { /* gloss sweep */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, .55) 48%, transparent 62%);
+  transform: translateX(-130%);
+  transition: transform .7s ease;
+}
+.m3-btn:hover::after,
+.m3-btn-primary:hover::after { transform: translateX(130%); }
+@keyframes prism { to { background-position: 280% 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .m3-btn-primary { animation: none; }
+  .m3-btn { transition: none; }
+  .m3-btn:hover { transform: none; }
+}
+.m3-btn:focus-visible,
+.m3-btn-primary:focus-visible { outline: 2px solid #eaddff; outline-offset: 2px; }
+/* Solid violet action — BATCH 1 (10 Nov 2026). Every FREE action
+   (Merge/Split buttons, download buttons, selected chips) uses this,
+   so the rainbow reads as the money CTA and nothing else. Same pill,
+   same motion, no gradient. */
+.m3-btn-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 999px;
+  padding: .85rem 1.75rem;
+  font-weight: 800;
+  font-size: .95rem;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, .25);
+  background: #7c3aed;
+  box-shadow: 0 8px 20px rgba(124, 58, 237, .35);
+  transition: transform .45s cubic-bezier(.34, 1.9, .64, 1), box-shadow .3s ease, filter .25s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}
+.m3-btn-solid:hover { transform: translateY(-3px) scale(1.02); filter: brightness(1.12); }
+.m3-btn-solid:active { transform: translateY(2px) scale(.93); }
+.m3-btn-solid:focus-visible { outline: 2px solid #eaddff; outline-offset: 2px; }
+/* Compact prism for tight spots (e.g. the header Buy Pro pill, which shares
+   its flex row with the brand title on a 390px phone). */
+.m3-btn-sm { padding: .55rem 1rem; font-size: .8rem; }
+/* Primary CTAs that still carry an inline gradient style (download / install /
+   promo buttons): the exact prism wins over the inline background. Display,
+   width and padding set inline or by JS are left alone. */
+a.m3-btn[style],
+button.m3-btn[style] {
+  background: var(--m3-prism) !important;
+  background-size: 280% 100% !important;
+  animation: prism 6s linear infinite !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  border: 1.5px solid rgba(255, 255, 255, .7) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .3) !important;
+  box-shadow: var(--m3-shadow-btn) !important;
+}
+
+/* Secondary action — glassy surface with a rainbow gradient border (prism echo) */
+.m3-btn-tonal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  border-radius: 999px;
+  padding: .85rem 1.75rem;
+  font-weight: 800;
+  font-size: .95rem;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--m3-on-surface);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(rgba(38, 38, 64, .82), rgba(38, 38, 64, .82)) padding-box,
+    linear-gradient(115deg, #7c3aed, #0ea5e9, #10b981, #f59e0b, #ec4899) border-box;
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  box-shadow: var(--m3-shadow-1);
+  transition: transform .38s var(--m3-ease-btn), box-shadow .3s ease;
+}
+.m3-btn-tonal:hover { transform: translateY(-2px) scale(1.02); box-shadow: var(--m3-shadow-2); }
+.m3-btn-tonal:active { transform: scale(.96); }
+.m3-btn-tonal:focus-visible { outline: 2px solid #eaddff; outline-offset: 2px; }
+
+/* --- Tabs (homepage Merge/Split): active tab is solid violet (BATCH 1:
+   the rainbow is the money CTA only; a free tab must not wear it). --- */
+.tab-btn.tab-btn {
+  border-radius: 999px;
+  color: var(--m3-on-variant);
+  transition: all .35s var(--m3-ease);
+}
+.tab-btn.tab-btn.active {
+  background: #7c3aed;
+  color: #fff;
+  box-shadow: var(--m3-shadow-2);
+}
+.tab-btn.tab-btn:hover { transform: translateY(-1px) scale(1.02); }
+
+/* --- Inputs: never hide under the sticky header when the mobile
+   keyboard scrolls them into view (BATCH 1, Gemini §3.2). --- */
+input, textarea, select { scroll-margin-top: 96px; }
+
+/* --- KB quick chips (SSC/signature/railway/caste pages, BATCH 1). --- */
+.kb-chip {
+  font-size: .8rem;
+  font-weight: 700;
+  padding: .4rem .8rem;
+  border-radius: 999px;
+  border: 1px solid var(--m3-outline);
+  background: transparent;
+  color: var(--m3-on-variant);
+  cursor: pointer;
+}
+.kb-chip.on { background: #7c3aed; border-color: #7c3aed; color: #fff; }
+
+/* --- Target-size buttons (compressor circles): one line, no wrap
+   (BATCH 1, visual audit P3-12 — "200 KB" broke onto two lines). --- */
+.target-btn {
+  font-size: .8rem !important;
+  padding: .55rem .25rem !important;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* --- Staggered fade-up entrance for tool cards (BATCH 1: the ONE
+   motion moment — dropzone + card entrance, no 3D hero). --- */
+@keyframes m3-fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.m3-fade-up { animation: m3-fade-up .5s var(--m3-ease) both; }
+.m3-fade-up:nth-child(2) { animation-delay: .05s; }
+.m3-fade-up:nth-child(3) { animation-delay: .1s; }
+.m3-fade-up:nth-child(4) { animation-delay: .15s; }
+.m3-fade-up:nth-child(5) { animation-delay: .2s; }
+.m3-fade-up:nth-child(6) { animation-delay: .25s; }
+.m3-fade-up:nth-child(7) { animation-delay: .3s; }
+.m3-fade-up:nth-child(8) { animation-delay: .35s; }
+.m3-fade-up:nth-child(9) { animation-delay: .4s; }
+@media (prefers-reduced-motion: reduce) {
+  .m3-fade-up { animation: none; }
+}
+
+/* --- Split-mode selector cards --- */
+.split-mode.m3-mode {
+  border-radius: var(--m3-r-md);
+  transition: all .35s var(--m3-ease);
+}
+.split-mode.m3-mode:hover { transform: translateY(-2px); }
+
+/* --- Dropzones --- */
+.m3-dropzone { transition: all .35s var(--m3-ease); }
+.m3-dropzone:hover {
+  border-color: var(--m3-primary);
+  background: rgba(79, 55, 139, .18);
+}
+.dropzone.drag {
+  border-color: var(--m3-primary);
+  background: rgba(79, 55, 139, .22);
+  transform: scale(1.01);
+}
+
+/* --- /app/ tool tiles: bold container colours, expressive radii, bouncy --- */
+.tool-card.tool-card {
+  border-radius: var(--m3-r-lg);
+  box-shadow: var(--m3-shadow-2);
+  transition: transform .35s var(--m3-ease), box-shadow .35s var(--m3-ease);
+}
+.tool-card.tool-card:hover { transform: translateY(-3px) scale(1.02); box-shadow: var(--m3-shadow-3); }
+.tool-card.tool-card:active { transform: scale(.96); }
+
+/* --- Fixed install banner + Diwali promo strip --- */
+#protools-banner {
+  background: linear-gradient(135deg, #3b0764, #4f378b 55%, #6d28d9) !important;
+  border-radius: 28px 12px 0 0 !important;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, .50) !important;
+}
+.m3-promo {
+  border-radius: 0 0 28px 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+}
+
+/* --- Ad slots, spinner, inputs (later stylesheet wins ties vs page <style>) --- */
+#adsense-top,
+#adsense-bottom { border-radius: var(--m3-r-md); }
+.spinner { border-top-color: var(--m3-primary); }
+input:focus,
+textarea:focus { box-shadow: 0 0 0 3px rgba(208, 188, 255, .25); }
+
+/* --- Print: never print the dark theme (protects resume-maker print CSS) --- */
+@media print {
+  body { background: #fff !important; color: #111 !important; }
+}

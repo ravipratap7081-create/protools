@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pdf-merge-split-free.vercel.app/sitemap.xml

@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="hi"><head><script src="/tracking-beacon-v2.js" defer></script><script src="/consent-banner.js" defer></script><script src="/pro-limits.js" defer></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex, nofollow"><title>Onboarding — ProTools</title><meta name="description" content="ProTools shuru karo — 3 steps me apna kaam chuno, tool kholo, aur Pro ke baare me jaano."><link rel="canonical" href="https://pdf-merge-split-free.vercel.app/onboarding"><script src="https://cdn.tailwindcss.com"></script><meta name="theme-color" content="#7c3aed"><link rel="manifest" href="/manifest.json"><link rel="icon" href="/icon-192.png"><link rel="stylesheet" href="/m3.css"></head><body class="m3-surface text-white min-h-screen" data-tool="auth_onboarding"><div class="max-w-md mx-auto px-4 py-10"><p class="text-center text-xs m3-on-variant mb-2"><a href="/" class="underline">← ProTools Home</a></p><h1 class="text-2xl font-extrabold text-center mb-1 m3-display">👋 Shuru karein?</h1><p class="text-center m3-on-variant mb-6 text-sm">3 steps — 1 minute. Koi signup zaroori nahi.</p><div id="step1" class="m3-surface-2 m3-shape-lg p-5 mb-4"><p class="font-bold mb-3">Step 1 — Aapko kya chahiye?</p><div class="space-y-2"><button type="button" data-need="pdf" class="need-btn w-full text-left m3-surface border m3-border m3-shape-md p-4 hover:border-violet-500"><p class="font-bold text-sm">📄 PDF ka kaam</p><p class="text-xs m3-on-variant mt-1">Merge, Split ya Compress karna hai</p></button><button type="button" data-need="photo" class="need-btn w-full text-left m3-surface border m3-border m3-shape-md p-4 hover:border-violet-500"><p class="font-bold text-sm">📷 Photo resize</p><p class="text-xs m3-on-variant mt-1">SSC, Passport, UP Police form photo</p></button><button type="button" data-need="pro" class="need-btn w-full text-left m3-surface border m3-border m3-shape-md p-4 hover:border-violet-500"><p class="font-bold text-sm">⭐ Pro lena hai</p><p class="text-xs m3-on-variant mt-1">Badi files + priority — ₹149/mo</p></button></div></div><div id="step2" class="m3-surface-2 m3-shape-lg p-5 mb-4 hidden"><p class="font-bold mb-3">Step 2 — Aapka tool taiyaar hai</p><div id="needTools" class="space-y-2"></div><button type="button" id="toStep3" class="w-full m3-btn-solid mt-4">Aage →</button></div><div id="step3" class="m3-surface-2 m3-shape-lg p-5 mb-4 hidden"><p class="font-bold mb-3">Step 3 — Bas, ho gaya ✓</p><ul class="text-sm m3-on-variant space-y-2 list-disc list-inside"><li>Saare tools free hain — koi signup nahi, koi watermark nahi.</li><li>Files aapke browser me hi process hoti hain — upload nahi hoti, tab band karte hi clear.</li><li>Pro (₹149/mo) sirf badi files (PDF 25 MB, photo 20 MB) aur priority ke liye hai.</li></ul><div class="flex gap-3 mt-4"><a href="/" class="m3-btn-solid flex-1 text-center">Tools kholo →</a><a href="/coins" class="m3-btn-tonal flex-1 text-center">Pro dekho</a></div></div><p class="text-center text-xs m3-on-variant"><a href="/" class="underline">Skip karo — seedha tools par jao</a></p></div><script>
+(function () {
+  var TOOLS = {
+    pdf: [['/merge', '🔗 Merge PDFs', 'Kai PDFs ko ek file me jodo'], ['/split', '✂️ Split PDF', 'Pages nikalo ya alag karo'], ['/pdf-compressor-100kb', '🗜️ PDF Compressor', 'PDF chhota karo — 100 KB se']],
+    photo: [['/ssc-photo-20-50kb', '🪪 Photo 20–50 KB', 'IBPS, Navy, passport — SSC live capture'], ['/signature-10-20kb', '✍️ Signature 10–20 KB', 'Signature resize'], ['/sarkari', '🛠️ Saare Sarkari Tools', 'Passport, Railway, UP Police aur bhi']],
+    pro: [['/coins', '⭐ Buy Pro — ₹149/mo', 'Badi files + priority support'], ['/', '📄 Free tools try karo', 'Pehle free me kaam karke dekho']]
+  };
+  var done = false;
+  try { done = window.localStorage.getItem('pt-onboarded') === '1'; } catch (e) {}
+  function showStep(n) {
+    [1, 2, 3].forEach(function (i) {
+      document.getElementById('step' + i).classList.toggle('hidden', i !== n);
+    });
+  }
+  if (done) { showStep(3); }
+  document.querySelectorAll('.need-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var need = b.getAttribute('data-need');
+      var box = document.getElementById('needTools');
+      box.innerHTML = '';
+      TOOLS[need].forEach(function (t) {
+        var a = document.createElement('a');
+        a.href = t[0];
+        a.className = 'block m3-surface border m3-border m3-shape-md p-4 hover:border-violet-500';
+        a.innerHTML = '<p class="font-bold text-sm">' + t[1] + '</p><p class="text-xs m3-on-variant mt-1">' + t[2] + '</p>';
+        box.appendChild(a);
+      });
+      try { window.RPSBeacon && window.RPSBeacon.event('tool_open', { tool_name: 'auth_onboarding', step: 'need_' + need }); } catch (e) {}
+      showStep(2);
+    });
+  });
+  document.getElementById('toStep3').addEventListener('click', function () {
+    try { window.localStorage.setItem('pt-onboarded', '1'); } catch (e) {}
+    showStep(3);
+  });
+})();
+</script><script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js');}</script></body></html>
